@@ -20,9 +20,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Logo } from "@/app/components/logo";
 
 const formSchema = z.object({
-  name: z.string().min(2, "نام خیلی کوتاه است"),
-  email: z.string().email("آدرس ایمیل نامعتبر است"),
-  password: z.string().min(8, "رمز عبور باید حداقل ۸ کاراکتر باشد"),
+  name: z.string().optional(),
+  email: z.string().optional(),
+  password: z.string().optional(),
 });
 
 export default function RegisterPage() {
@@ -51,7 +51,7 @@ export default function RegisterPage() {
       </CardHeader>
       <CardContent>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={(e) => { e.preventDefault(); form.handleSubmit(onSubmit)(); }} className="space-y-4">
             <FormField
               control={form.control}
               name="name"
