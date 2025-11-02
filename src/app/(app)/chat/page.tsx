@@ -12,15 +12,15 @@ export default function ChatListPage() {
   return (
     <div className="flex h-full flex-col">
       <header className="flex h-16 shrink-0 items-center justify-between border-b bg-card px-4">
-        <h1 className="text-xl font-bold">چت‌ها</h1>
-        <Button variant="ghost" size="icon">
+         <Button variant="ghost" size="icon">
           <PlusCircle className="h-6 w-6" />
         </Button>
+        <h1 className="text-xl font-bold">چت‌ها</h1>
       </header>
       <div className="p-4">
         <div className="relative">
-          <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-          <Input placeholder="جستجوی چت‌ها..." className="pr-10" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <Input placeholder="جستجوی چت‌ها..." className="pl-10 text-right" />
         </div>
       </div>
       <ScrollArea className="flex-1">
@@ -31,7 +31,17 @@ export default function ChatListPage() {
             return (
               <Link href={`/chat/${chat.id}`} key={chat.id}>
                 <div className="flex items-center gap-3 rounded-lg px-3 py-3 transition-colors hover:bg-muted">
-                  <div className="flex flex-col items-start gap-1 text-xs text-muted-foreground">
+                  <Avatar className="h-12 w-12">
+                    <AvatarImage src={user?.avatar} alt={user?.name} />
+                    <AvatarFallback>{user?.name.charAt(0)}</AvatarFallback>
+                  </Avatar>
+                  <div className="flex-1 truncate text-right">
+                    <div className="font-semibold">{user?.name}</div>
+                    <p className="truncate text-sm text-muted-foreground">
+                      {lastMessage.text}
+                    </p>
+                  </div>
+                  <div className="flex flex-col items-end gap-1 text-xs text-muted-foreground">
                     <span>{lastMessage.timestamp}</span>
                     {chat.unreadCount > 0 && (
                       <Badge className="flex h-5 w-5 items-center justify-center rounded-full p-0">
@@ -39,16 +49,6 @@ export default function ChatListPage() {
                       </Badge>
                     )}
                   </div>
-                  <div className="flex-1 truncate text-right">
-                    <div className="font-semibold">{user?.name}</div>
-                    <p className="truncate text-sm text-muted-foreground">
-                      {lastMessage.text}
-                    </p>
-                  </div>
-                  <Avatar className="h-12 w-12">
-                    <AvatarImage src={user?.avatar} alt={user?.name} />
-                    <AvatarFallback>{user?.name.charAt(0)}</AvatarFallback>
-                  </Avatar>
                 </div>
               </Link>
             );

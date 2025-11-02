@@ -50,7 +50,7 @@ export default function AiAssistantPage() {
       <ScrollArea className="flex-1">
         <div className="p-4 space-y-6">
           <form action={formAction} className="space-y-4">
-            <div className="space-y-2">
+            <div className="space-y-2 text-right">
               <Label htmlFor="currentCode">کد شما</Label>
               <Textarea
                 id="currentCode"
@@ -61,7 +61,7 @@ export default function AiAssistantPage() {
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+              <div className="space-y-2 text-right">
                 <Label htmlFor="programmingLanguage">زبان</Label>
                 <Select name="programmingLanguage" defaultValue="javascript">
                   <SelectTrigger id="programmingLanguage">
@@ -69,14 +69,14 @@ export default function AiAssistantPage() {
                   </SelectTrigger>
                   <SelectContent>
                     {languages.map((lang) => (
-                      <SelectItem key={lang.value} value={lang.value} className="capitalize">
+                      <SelectItem key={lang.value} value={lang.value} className="capitalize text-right">
                         {lang.label}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2 text-right">
                 <Label htmlFor="userQuery">درخواست خاص (اختیاری)</Label>
                 <Input
                   id="userQuery"
@@ -92,17 +92,17 @@ export default function AiAssistantPage() {
           </form>
 
           {state.error && (
-             <Alert variant="destructive">
+             <Alert variant="destructive" className="text-right">
                <AlertTitle>خطا</AlertTitle>
                <AlertDescription>{state.error}</AlertDescription>
              </Alert>
           )}
 
           {state.result && (
-            <Card>
+            <Card className="text-right">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Bot /> پیشنهادات
+                <CardTitle className="flex items-center justify-end gap-2">
+                  پیشنهادات <Bot />
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
