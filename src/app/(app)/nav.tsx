@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MessageSquare, Bot, Settings as SettingsIcon } from "lucide-react";
+import { MessageSquare, Bot, Settings as SettingsIcon, Wallet } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/chat", icon: MessageSquare, label: "چت‌ها" },
+  { href: "/wallet", icon: Wallet, label: "کیف پول" },
   { href: "/ai-assistant", icon: Bot, label: "دستیار" },
   { href: "/settings", icon: SettingsIcon, label: "تنظیمات" },
 ];

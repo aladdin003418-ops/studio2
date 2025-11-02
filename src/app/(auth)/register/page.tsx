@@ -20,7 +20,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Logo } from "@/app/components/logo";
 
 const formSchema = z.object({
-  name: z.string().min(2, "نام 너무 کوتاه است"),
+  name: z.string().min(2, "نام خیلی کوتاه است"),
   email: z.string().email("آدرس ایمیل نامعتبر است"),
   password: z.string().min(8, "رمز عبور باید حداقل ۸ کاراکتر باشد"),
 });
@@ -47,7 +47,7 @@ export default function RegisterPage() {
       <CardHeader className="items-center text-center">
         <Logo className="mb-4" />
         <CardTitle>ایجاد حساب کاربری</CardTitle>
-        <CardDescription>برای شروع همکاری در کدتالک عضو شوید</CardDescription>
+        <CardDescription>برای شروع همکاری در چت برنامه نویسان عضو شوید</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>

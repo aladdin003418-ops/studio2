@@ -16,9 +16,6 @@ const settingsOptions = [
 export default function SettingsPage() {
   return (
     <div className="flex h-full flex-col">
-      <header className="flex h-16 shrink-0 items-center border-b bg-card px-4">
-        <h1 className="text-xl font-bold">تنظیمات</h1>
-      </header>
       <div className="flex-1 overflow-y-auto p-4">
         <div className="space-y-6">
           {/* Profile Section */}

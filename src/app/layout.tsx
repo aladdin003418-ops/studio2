@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "کدتالک",
+  title: "چت برنامه نویسان",
   description: "یک اپلیکیشن چت برای برنامه‌نویسان.",
 };
 
@@ -24,14 +25,21 @@ export default function RootLayout({
         />
       </head>
       <body className={cn("font-body antialiased")}>
-        <div className="relative flex min-h-screen flex-col items-center justify-center bg-background p-4 sm:p-6">
-          <div className="w-full max-w-md overflow-hidden rounded-2xl bg-card shadow-lg ring-1 ring-border">
-            <div className="flex h-[85vh] min-h-[640px] w-full flex-col">
-              {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative flex min-h-screen flex-col items-center justify-center bg-background p-4 sm:p-6">
+            <div className="w-full max-w-md overflow-hidden rounded-2xl bg-card shadow-lg ring-1 ring-border">
+              <div className="flex h-[85vh] min-h-[640px] w-full flex-col">
+                {children}
+              </div>
             </div>
           </div>
-        </div>
-        <Toaster />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
