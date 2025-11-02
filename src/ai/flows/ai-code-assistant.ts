@@ -51,7 +51,7 @@ Current Code:
 \`\`\`
 
 {{#if userQuery}}
-User Query: {{userQuery}}
+User Query: {{{userQuery}}}
 {{/if}}
 
 Provide code suggestions and explain how they can improve the code.
