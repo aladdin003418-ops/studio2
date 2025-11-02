@@ -18,14 +18,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Logo } from "@/app/components/logo";
+import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  email: z.string().optional(),
-  password: z.string().optional(),
+  email: z.string().email("لطفا یک آدرس ایمیل معتبر وارد کنید."),
+  password: z.string().min(8, "رمز عبور باید حداقل ۸ کاراکتر باشد."),
 });
 
 export default function LoginPage() {
   const router = useRouter();
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -35,9 +37,15 @@ export default function LoginPage() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    // On successful login, redirect to chat
-    router.push("/chat");
+    if (values.email === "admin@example.com" && values.password === "12345678") {
+      router.push("/chat");
+    } else {
+      toast({
+        variant: "destructive",
+        title: "خطا در ورود",
+        description: "ایمیل یا رمز عبور نامعتبر است.",
+      })
+    }
   }
 
   return (
@@ -49,7 +57,7 @@ export default function LoginPage() {
       </CardHeader>
       <CardContent>
         <Form {...form}>
-          <form onSubmit={(e) => { e.preventDefault(); form.handleSubmit(onSubmit)(); }} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
              <FormField
               control={form.control}
               name="email"
@@ -57,7 +65,7 @@ export default function LoginPage() {
                 <FormItem>
                   <FormLabel>ایمیل</FormLabel>
                   <FormControl>
-                    <Input placeholder="your.email@example.com" {...field} />
+                    <Input placeholder="admin@example.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
