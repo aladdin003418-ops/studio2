@@ -1,11 +1,11 @@
 export const users = [
-  { id: 'user-me', name: 'You', avatar: 'https://picsum.photos/seed/0/100/100' },
-  { id: 'user-1', name: 'Sarah Lee', avatar: 'https://picsum.photos/seed/1/100/100', status: 'online' },
-  { id: 'user-2', name: 'Alex Chen', avatar: 'https://picsum.photos/seed/2/100/100', status: 'offline' },
-  { id: 'user-3', name: 'Maria Garcia', avatar: 'https://picsum.photos/seed/3/100/100', status: 'online' },
-  { id: 'user-4', name: 'David Kim', avatar: 'https://picsum.photos/seed/4/100/100', status: 'offline' },
-  { id: 'user-5', name: 'Emily Rodriguez', avatar: 'https://picsum.photos/seed/5/100/100', status: 'online' },
-  { id: 'user-6', name: 'Ben Carter', avatar: 'https://picsum.photos/seed/6/100/100', status: 'offline' },
+  { id: 'user-me', name: 'شما', avatar: 'https://picsum.photos/seed/0/100/100' },
+  { id: 'user-1', name: 'سارا رضایی', avatar: 'https://picsum.photos/seed/1/100/100', status: 'online' },
+  { id: 'user-2', name: 'علی چن', avatar: 'https://picsum.photos/seed/2/100/100', status: 'offline' },
+  { id: 'user-3', name: 'ماریا گارسیا', avatar: 'https://picsum.photos/seed/3/100/100', status: 'online' },
+  { id: 'user-4', name: 'دیوید کیم', avatar: 'https://picsum.photos/seed/4/100/100', status: 'offline' },
+  { id: 'user-5', name: 'امیلی رودریگز', avatar: 'https://picsum.photos/seed/5/100/100', status: 'online' },
+  { id: 'user-6', name: 'بن کارتر', avatar: 'https://picsum.photos/seed/6/100/100', status: 'offline' },
 ];
 
 export const chats = [
@@ -14,10 +14,10 @@ export const chats = [
     userId: 'user-1',
     unreadCount: 2,
     messages: [
-      { id: 'msg-1-1', text: 'Hey, did you see the new Next.js 15 features?', senderId: 'user-1', timestamp: '10:40 AM' },
-      { id: 'msg-1-2', text: 'Yeah, Server Actions are looking pretty sweet!', senderId: 'user-me', timestamp: '10:41 AM' },
-      { id: 'msg-1-3', text: 'Totally! I\'m excited to try them out in our project.', senderId: 'user-1', timestamp: '10:41 AM' },
-      { id: 'msg-1-4', text: 'Also, the new compiler is a game changer.', senderId: 'user-1', timestamp: '10:42 AM' },
+      { id: 'msg-1-1', text: 'سلام، ویژگی‌های جدید Next.js 15 رو دیدی؟', senderId: 'user-1', timestamp: '۱۰:۴۰' },
+      { id: 'msg-1-2', text: 'آره، Server Actions خیلی خوب به نظر میان!', senderId: 'user-me', timestamp: '۱۰:۴۱' },
+      { id: 'msg-1-3', text: 'دقیقا! من هیجان‌زده‌ام که تو پروژه‌مون امتحانشون کنم.', senderId: 'user-1', timestamp: '۱۰:۴۱' },
+      { id: 'msg-1-4', text: 'کامپایلر جدید هم فوق‌العاده‌ست.', senderId: 'user-1', timestamp: '۱۰:۴۲' },
     ]
   },
   {
@@ -25,8 +25,8 @@ export const chats = [
     userId: 'user-2',
     unreadCount: 0,
     messages: [
-      { id: 'msg-2-1', text: 'I pushed the latest changes to the `dev` branch.', senderId: 'user-me', timestamp: 'Yesterday' },
-      { id: 'msg-2-2', text: 'Got it. I\'ll review them this afternoon.', senderId: 'user-2', timestamp: 'Yesterday' },
+      { id: 'msg-2-1', text: 'آخرین تغییرات رو به شاخه `dev` پوش کردم.', senderId: 'user-me', timestamp: 'دیروز' },
+      { id: 'msg-2-2', text: 'باشه. بعد از ظهر بررسیشون می‌کنم.', senderId: 'user-2', timestamp: 'دیروز' },
     ]
   },
   {
@@ -34,8 +34,8 @@ export const chats = [
     userId: 'user-3',
     unreadCount: 0,
     messages: [
-      { id: 'msg-3-1', text: 'Can you help me with a CSS bug? My flexbox is acting weird.', senderId: 'user-3', timestamp: 'Yesterday' },
-      { id: 'msg-3-2', text: 'Sure, send me the code snippet.', senderId: 'user-me', timestamp: 'Yesterday' },
+      { id: 'msg-3-1', text: 'میتونی تو یه باگ CSS کمکم کنی؟ فلکس‌باکسم عجیب رفتار می‌کنه.', senderId: 'user-3', timestamp: 'دیروز' },
+      { id: 'msg-3-2', text: 'حتما، قطعه کد رو برام بفرست.', senderId: 'user-me', timestamp: 'دیروز' },
     ]
   },
   {
@@ -43,7 +43,7 @@ export const chats = [
     userId: 'user-4',
     unreadCount: 1,
     messages: [
-      { id: 'msg-4-1', text: 'Lunch today?', senderId: 'user-4', timestamp: '12:30 PM' },
+      { id: 'msg-4-1', text: 'ناهار امروز؟', senderId: 'user-4', timestamp: '۱۲:۳۰' },
     ]
   },
     {
@@ -51,8 +51,8 @@ export const chats = [
     userId: 'user-5',
     unreadCount: 0,
     messages: [
-      { id: 'msg-5-1', text: 'The new design for the dashboard is approved.', senderId: 'user-5', timestamp: 'Mon' },
-       { id: 'msg-5-2', text: 'Great! I will start the implementation.', senderId: 'user-me', timestamp: 'Mon' },
+      { id: 'msg-5-1', text: 'طرح جدید داشبورد تایید شد.', senderId: 'user-5', timestamp: 'دوشنبه' },
+       { id: 'msg-5-2', text: 'عالی! پیاده‌سازیش رو شروع می‌کنم.', senderId: 'user-me', timestamp: 'دوشنبه' },
     ]
   },
   {
@@ -60,8 +60,8 @@ export const chats = [
     userId: 'user-6',
     unreadCount: 0,
     messages: [
-      { id: 'msg-6-1', text: 'How\'s the Genkit integration going?', senderId: 'user-me', timestamp: 'Tue' },
-      { id: 'msg-6-2', text: 'Almost done, just wrapping up the tests.', senderId: 'user-6', timestamp: 'Tue' },
+      { id: 'msg-6-1', text: 'ادغام Genkit چطور پیش میره؟', senderId: 'user-me', timestamp: 'سه‌شنبه' },
+      { id: 'msg-6-2', text: 'تقریبا تمومه، فقط دارم تست‌ها رو تموم می‌کنم.', senderId: 'user-6', timestamp: 'سه‌شنبه' },
     ]
   },
 ];

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Send } from "lucide-react";
+import { ArrowRight, Send } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -23,7 +23,7 @@ export default function ChatPage({ params }: { params: { id: string } }) {
       <header className="flex h-16 shrink-0 items-center gap-4 border-b bg-card px-4">
         <Link href="/chat" passHref>
           <Button variant="ghost" size="icon">
-            <ArrowLeft className="h-6 w-6" />
+            <ArrowRight className="h-6 w-6" />
           </Button>
         </Link>
         <div className="flex items-center gap-3">
@@ -35,11 +35,11 @@ export default function ChatPage({ params }: { params: { id: string } }) {
             <div className="font-bold">{user?.name}</div>
             {user?.status === "online" && (
               <div className="flex items-center gap-1.5">
+                <span className="text-xs text-muted-foreground">آنلاین</span>
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                 </span>
-                <span className="text-xs text-muted-foreground">Online</span>
               </div>
             )}
           </div>
@@ -53,15 +53,15 @@ export default function ChatPage({ params }: { params: { id: string } }) {
               key={message.id}
               className={cn(
                 "flex max-w-[75%] flex-col gap-1",
-                message.senderId === "user-me" ? "ml-auto items-end" : "items-start"
+                message.senderId === "user-me" ? "mr-auto items-start" : "ml-auto items-end"
               )}
             >
               <div
                 className={cn(
                   "rounded-lg px-4 py-2 text-sm",
                   message.senderId === "user-me"
-                    ? "bg-accent text-accent-foreground rounded-br-none"
-                    : "bg-card text-card-foreground rounded-bl-none border"
+                    ? "bg-accent text-accent-foreground rounded-bl-none"
+                    : "bg-card text-card-foreground rounded-br-none border"
                 )}
               >
                 <p>{message.text}</p>
@@ -75,10 +75,10 @@ export default function ChatPage({ params }: { params: { id: string } }) {
       </ScrollArea>
 
       <footer className="flex h-16 items-center gap-2 border-t bg-card px-4">
-        <Input placeholder="Type a message..." className="flex-1" />
         <Button size="icon">
           <Send className="h-5 w-5" />
         </Button>
+        <Input placeholder="یک پیام بنویسید..." className="flex-1" />
       </footer>
     </div>
   );

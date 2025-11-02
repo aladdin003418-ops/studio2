@@ -46,14 +46,13 @@ const prompt = ai.definePrompt({
   prompt: `You are an AI code assistant that provides intelligent suggestions based on the current code and programming language to improve code quality and efficiency.
 
 Current Code:
-```{{{programmingLanguage}}}\n{{{
-    currentCode
-  }}}
-```
+\`\`\`{{programmingLanguage}}
+{{{currentCode}}}
+\`\`\`
 
-{% if userQuery %}
+{{#if userQuery}}
 User Query: {{userQuery}}
-{% endif %}
+{{/if}}
 
 Provide code suggestions and explain how they can improve the code.
 

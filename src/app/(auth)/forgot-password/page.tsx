@@ -18,10 +18,10 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Logo } from "@/app/components/logo";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowLeft } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const formSchema = z.object({
-  email: z.string().email("Please enter a valid email address."),
+  email: z.string().email("لطفا یک آدرس ایمیل معتبر وارد کنید."),
 });
 
 export default function ForgotPasswordPage() {
@@ -36,8 +36,8 @@ export default function ForgotPasswordPage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: "Password Reset Sent",
-      description: `If an account exists for ${values.email}, you will receive an email with reset instructions.`,
+      title: "لینک بازیابی رمز عبور ارسال شد",
+      description: `اگر حسابی برای ${values.email} وجود داشته باشد، ایمیلی حاوی دستورالعمل بازیابی دریافت خواهید کرد.`,
     });
     form.reset();
   }
@@ -46,9 +46,9 @@ export default function ForgotPasswordPage() {
     <Card className="w-full">
       <CardHeader className="items-center text-center">
         <Logo className="mb-4" />
-        <CardTitle>Forgot Password?</CardTitle>
+        <CardTitle>رمز عبور خود را فراموش کرده‌اید؟</CardTitle>
         <CardDescription>
-          Enter your email to receive a reset link.
+          برای دریافت لینک بازیابی، ایمیل خود را وارد کنید.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -59,7 +59,7 @@ export default function ForgotPasswordPage() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>ایمیل</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
@@ -72,15 +72,15 @@ export default function ForgotPasswordPage() {
               )}
             />
             <Button type="submit" className="w-full">
-              Send Reset Link
+              ارسال لینک بازیابی
             </Button>
           </form>
         </Form>
         <div className="mt-4 text-center text-sm">
           <Link href="/login" passHref>
              <Button variant="link" className="px-0 h-auto py-0">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-               Back to Login
+               بازگشت به صفحه ورود
+               <ArrowRight className="mr-2 h-4 w-4" />
              </Button>
           </Link>
         </div>

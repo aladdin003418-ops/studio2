@@ -7,7 +7,7 @@ import {
 import { z } from "zod";
 
 const formSchema = z.object({
-  currentCode: z.string().min(1, "Code cannot be empty."),
+  currentCode: z.string().min(1, "کد نمی‌تواند خالی باشد."),
   programmingLanguage: z.string(),
   userQuery: z.string().optional(),
 });
@@ -30,7 +30,7 @@ export async function getCodeSuggestionsAction(
   if (!validatedFields.success) {
     return {
       result: null,
-      error: validatedFields.error.flatten().fieldErrors.currentCode?.[0] || 'Invalid input.'
+      error: validatedFields.error.flatten().fieldErrors.currentCode?.[0] || 'ورودی نامعتبر.'
     };
   }
 
@@ -41,7 +41,7 @@ export async function getCodeSuggestionsAction(
     console.error(error);
     return {
       result: null,
-      error: "An unexpected error occurred. Please try again.",
+      error: "یک خطای غیرمنتظره رخ داد. لطفا دوباره تلاش کنید.",
     };
   }
 }

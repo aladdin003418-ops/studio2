@@ -10,7 +10,7 @@ export function Logo({ className }: { className?: string }) {
       )}
     >
       <MessageSquareCode className="h-8 w-8" />
-      <h1 className="font-headline">CodeTalk</h1>
+      <h1 className="font-headline">کدتالک</h1>
     </div>
   );
 }

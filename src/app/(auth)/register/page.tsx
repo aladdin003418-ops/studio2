@@ -20,9 +20,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Logo } from "@/app/components/logo";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name is too short"),
-  email: z.string().email("Invalid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
+  name: z.string().min(2, "نام 너무 کوتاه است"),
+  email: z.string().email("آدرس ایمیل نامعتبر است"),
+  password: z.string().min(8, "رمز عبور باید حداقل ۸ کاراکتر باشد"),
 });
 
 export default function RegisterPage() {
@@ -46,8 +46,8 @@ export default function RegisterPage() {
     <Card className="w-full">
       <CardHeader className="items-center text-center">
         <Logo className="mb-4" />
-        <CardTitle>Create an Account</CardTitle>
-        <CardDescription>Join CodeTalk to start collaborating</CardDescription>
+        <CardTitle>ایجاد حساب کاربری</CardTitle>
+        <CardDescription>برای شروع همکاری در کدتالک عضو شوید</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -57,9 +57,9 @@ export default function RegisterPage() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>نام</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your Name" {...field} />
+                    <Input placeholder="نام شما" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -70,7 +70,7 @@ export default function RegisterPage() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>ایمیل</FormLabel>
                   <FormControl>
                     <Input placeholder="your.email@example.com" {...field} />
                   </FormControl>
@@ -83,7 +83,7 @@ export default function RegisterPage() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>رمز عبور</FormLabel>
                   <FormControl>
                     <Input type="password" placeholder="••••••••" {...field} />
                   </FormControl>
@@ -92,15 +92,15 @@ export default function RegisterPage() {
               )}
             />
             <Button type="submit" className="w-full">
-              Sign Up
+              ثبت نام
             </Button>
           </form>
         </Form>
         <div className="mt-4 text-center text-sm">
-          Already have an account?{" "}
+          قبلا ثبت‌نام کرده‌اید؟{" "}
           <Link href="/login" passHref>
              <Button variant="link" className="px-0 h-auto py-0">
-               Login
+               ورود
              </Button>
           </Link>
         </div>

@@ -6,9 +6,9 @@ import { MessageSquare, Bot, Settings as SettingsIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/chat", icon: MessageSquare, label: "Chats" },
-  { href: "/ai-assistant", icon: Bot, label: "Assistant" },
-  { href: "/settings", icon: SettingsIcon, label: "Settings" },
+  { href: "/chat", icon: MessageSquare, label: "چت‌ها" },
+  { href: "/ai-assistant", icon: Bot, label: "دستیار" },
+  { href: "/settings", icon: SettingsIcon, label: "تنظیمات" },
 ];
 
 export default function Nav() {

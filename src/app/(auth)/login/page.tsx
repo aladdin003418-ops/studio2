@@ -21,10 +21,10 @@ import { Logo } from "@/app/components/logo";
 
 const formSchema = z.object({
   username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "نام کاربری باید حداقل ۲ کاراکتر باشد.",
   }),
   password: z.string().min(6, {
-    message: "Password must be at least 6 characters.",
+    message: "رمز عبور باید حداقل ۶ کاراکتر باشد.",
   }),
 });
 
@@ -48,8 +48,8 @@ export default function LoginPage() {
     <Card className="w-full">
       <CardHeader className="items-center text-center">
         <Logo className="mb-4" />
-        <CardTitle>Welcome Back!</CardTitle>
-        <CardDescription>Sign in to continue to CodeTalk</CardDescription>
+        <CardTitle>خوش آمدید!</CardTitle>
+        <CardDescription>برای ادامه وارد کدتالک شوید</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -59,9 +59,9 @@ export default function LoginPage() {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel>نام کاربری</FormLabel>
                   <FormControl>
-                    <Input placeholder="your_username" {...field} />
+                    <Input placeholder="نام کاربری شما" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -73,10 +73,10 @@ export default function LoginPage() {
               render={({ field }) => (
                 <FormItem>
                   <div className="flex justify-between items-baseline">
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>رمز عبور</FormLabel>
                     <Link href="/forgot-password" passHref>
                        <Button variant="link" className="px-0 text-sm h-auto py-0">
-                         Forgot password?
+                         رمز عبور را فراموش کرده‌اید؟
                        </Button>
                     </Link>
                   </div>
@@ -88,15 +88,15 @@ export default function LoginPage() {
               )}
             />
             <Button type="submit" className="w-full">
-              Login
+              ورود
             </Button>
           </form>
         </Form>
         <div className="mt-4 text-center text-sm">
-          Don't have an account?{" "}
+          حساب کاربری ندارید؟{" "}
           <Link href="/register" passHref>
              <Button variant="link" className="px-0 h-auto py-0">
-               Sign up
+               ثبت نام کنید
              </Button>
           </Link>
         </div>
