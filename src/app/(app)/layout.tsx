@@ -13,7 +13,7 @@ import {
   SidebarTrigger,
   SidebarFooter,
 } from "@/components/ui/sidebar";
-import { Bot, MessageSquare, Settings, Wallet, LogOut, Menu, Home, Compass } from "lucide-react";
+import { Bot, MessageSquare, Settings, Wallet, LogOut, Menu, Home, Compass, X } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Logo } from '../components/logo';
 import { Button } from '@/components/ui/button';
@@ -21,6 +21,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { SheetClose } from '@/components/ui/sheet';
 
 const navItems = [
   { href: "/chat", icon: MessageSquare, label: "چت‌ها" },
@@ -40,53 +41,15 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <div className="flex h-full w-full">
-        {/* Desktop Sidebar */}
-        <Sidebar side="right" className="hidden md:flex">
-          <SidebarHeader>
-            <Logo />
-          </SidebarHeader>
-          <SidebarContent>
-            <SidebarMenu>
-              {navItems.map((item) => (
-                <SidebarMenuItem key={item.href}>
-                  <Link href={item.href} passHref>
-                    <SidebarMenuButton
-                      isActive={pathname.startsWith(item.href)}
-                      className="w-full justify-end"
-                      tooltip={item.label}
-                    >
-                      <span className='group-data-[state=expanded]:opacity-100 group-data-[state=collapsed]:opacity-0 transition-opacity duration-200'>{item.label}</span>
-                      <item.icon className="h-5 w-5" />
-                    </SidebarMenuButton>
-                  </Link>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarContent>
-          <SidebarFooter>
-             <div className='flex items-center justify-end p-3'>
-               <div className='flex items-center gap-3'>
-                   <div className='text-right group-data-[state=expanded]:opacity-100 group-data-[state=collapsed]:opacity-0 transition-opacity duration-200'>
-                      <p className='font-semibold text-sm'>نام شما</p>
-                      <p className='text-xs text-muted-foreground'>کاربر</p>
-                   </div>
-                   <Avatar className="h-10 w-10">
-                      <AvatarImage src="https://picsum.photos/seed/0/100/100" />
-                      <AvatarFallback>ش</AvatarFallback>
-                  </Avatar>
-              </div>
-            </div>
-             <Button variant="ghost" onClick={handleLogout} className="w-full justify-end text-red-500 hover:text-red-600">
-                 <span className="font-medium group-data-[state=expanded]:opacity-100 group-data-[state=collapsed]:opacity-0 transition-opacity duration-200">خروج</span>
-                 <LogOut className="h-6 w-6" />
-              </Button>
-          </SidebarFooter>
-        </Sidebar>
-
         {/* Mobile Sidebar (Hamburger Menu) */}
         <Sidebar side="right" className="md:hidden" collapsible='offcanvas'>
            <SidebarHeader>
             <Logo />
+            <SheetClose asChild>
+                <Button variant="ghost" size="icon" className="absolute left-4 top-4">
+                    <X className="h-5 w-5" />
+                </Button>
+            </SheetClose>
           </SidebarHeader>
           <SidebarContent>
             <SidebarMenu>
@@ -118,10 +81,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <div className='flex items-center gap-2'>
               {/* Hamburger Trigger for Mobile */}
               <SidebarTrigger className="md:hidden">
-                  <Menu/>
-              </SidebarTrigger>
-              {/* Desktop Sidebar Toggle */}
-               <SidebarTrigger className="hidden md:block">
                   <Menu/>
               </SidebarTrigger>
               <div className="sm:hidden">
