@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowDown, ArrowUp, Plus, MoreVertical, Landmark, CreditCard, Send, Waves } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const transactions = [
   {
@@ -35,8 +36,17 @@ const transactions = [
 ];
 
 export default function WalletPage() {
+  const { toast } = useToast();
+
+  const handleActionClick = (title: string) => {
+    toast({
+      title: title,
+      description: "این قابلیت در نسخه آزمایشی فعال نمی باشد.",
+    })
+  }
+
   return (
-    <div className="p-4 space-y-6 text-right bg-muted/30 dark:bg-background">
+    <div className="p-4 space-y-6 text-right bg-muted/30 dark:bg-background h-full overflow-y-auto">
       <Card className="bg-gradient-to-br from-primary to-blue-700 text-primary-foreground shadow-lg overflow-hidden relative">
          <div className="absolute -bottom-10 -right-10 w-32 h-32 opacity-20">
             <Waves className="w-full h-full" />
@@ -52,15 +62,15 @@ export default function WalletPage() {
       </Card>
 
       <div className="grid grid-cols-3 gap-3 text-center">
-        <Button variant="secondary" className="flex flex-col h-auto py-3 gap-2 shadow-sm">
+        <Button variant="secondary" onClick={() => handleActionClick("افزایش موجودی")} className="flex flex-col h-auto py-3 gap-2 shadow-sm">
           <Plus className="h-6 w-6" />
           <span className="text-xs font-semibold">افزایش موجودی</span>
         </Button>
-         <Button variant="secondary" className="flex flex-col h-auto py-3 gap-2 shadow-sm">
+         <Button variant="secondary" onClick={() => handleActionClick("انتقال وجه")} className="flex flex-col h-auto py-3 gap-2 shadow-sm">
           <Send className="h-6 w-6" />
           <span className="text-xs font-semibold">انتقال وجه</span>
         </Button>
-        <Button variant="secondary" className="flex flex-col h-auto py-3 gap-2 shadow-sm">
+        <Button variant="secondary" onClick={() => handleActionClick("بیشتر")} className="flex flex-col h-auto py-3 gap-2 shadow-sm">
           <MoreVertical className="h-6 w-6" />
           <span className="text-xs font-semibold">بیشتر</span>
         </Button>
@@ -73,8 +83,8 @@ export default function WalletPage() {
         </CardHeader>
         <CardContent className="space-y-4">
             <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50 border">
-                <div className="flex items-center gap-4 text-right">
-                    <div className="p-3 bg-white rounded-md flex items-center justify-center">
+                <div className="flex items-center gap-4 text-left">
+                    <div className="p-3 bg-white rounded-md flex items-center justify-center shadow">
                         <CreditCard className="h-6 w-6 text-primary" />
                     </div>
                     <div>
@@ -85,8 +95,8 @@ export default function WalletPage() {
                 <Button variant="ghost" size="sm">مدیریت</Button>
             </div>
              <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50 border">
-                 <div className="flex items-center gap-4 text-right">
-                    <div className="p-3 bg-white rounded-md flex items-center justify-center">
+                 <div className="flex items-center gap-4 text-left">
+                    <div className="p-3 bg-white rounded-md flex items-center justify-center shadow">
                         <Landmark className="h-6 w-6 text-primary" />
                     </div>
                     <div>

@@ -21,8 +21,8 @@ import { Logo } from "@/app/components/logo";
 import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  email: z.string().email("لطفا یک آدرس ایمیل معتبر وارد کنید."),
-  password: z.string().min(8, "رمز عبور باید حداقل ۸ کاراکتر باشد."),
+  email: z.string().email({ message: "لطفا یک آدرس ایمیل معتبر وارد کنید." }),
+  password: z.string().min(8, { message: "رمز عبور باید حداقل ۸ کاراکتر باشد." }),
 });
 
 export default function LoginPage() {
@@ -54,81 +54,88 @@ export default function LoginPage() {
   }
   
   function handleGuestLogin() {
+     toast({
+        title: "ورود مهمان",
+        description: "شما به عنوان کاربر مهمان وارد شدید.",
+      });
     router.push("/chat");
   }
 
   return (
-    <Card className="w-full border-0 shadow-none sm:border sm:shadow-sm">
-      <CardHeader className="items-center text-center">
-        <Logo className="mb-4" />
-        <CardTitle>خوش آمدید!</CardTitle>
-        <CardDescription>برای ادامه وارد چت برنامه نویسان شوید</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-             <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>ایمیل</FormLabel>
-                  <FormControl>
-                    <Input placeholder="admin@example.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-             <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>رمز عبور</FormLabel>
-                  <FormControl>
-                    <Input type="password" placeholder="••••••••" {...field} />
-                  </FormControl>
-                  <div className="text-left pt-1">
-                     <Link href="/forgot-password" passHref>
-                       <Button variant="link" className="px-0 h-auto py-0 text-xs">
-                         رمز عبور را فراموش کرده‌اید؟
-                       </Button>
-                    </Link>
-                  </div>
-                </FormItem>
-              )}
-            />
-            <Button type="submit" className="w-full font-bold">
-              ورود
-            </Button>
-          </form>
-        </Form>
-        
-        <div className="relative my-6">
-          <div className="absolute inset-0 flex items-center">
-            <span className="w-full border-t" />
+    <div className="flex h-full flex-col justify-center">
+      <Card className="w-full border-0 shadow-none sm:border-0">
+        <CardHeader className="items-center text-center">
+          <Logo className="mb-4" />
+          <CardTitle>خوش آمدید!</CardTitle>
+          <CardDescription>برای ادامه وارد چت برنامه نویسان شوید</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>ایمیل</FormLabel>
+                    <FormControl>
+                      <Input placeholder="admin@example.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>رمز عبور</FormLabel>
+                    <FormControl>
+                      <Input type="password" placeholder="••••••••" {...field} />
+                    </FormControl>
+                     <div className="text-left pt-1">
+                       <Link href="/forgot-password" passHref>
+                         <Button variant="link" className="px-0 h-auto py-0 text-xs">
+                           رمز عبور را فراموش کرده‌اید؟
+                         </Button>
+                      </Link>
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button type="submit" className="w-full font-bold">
+                ورود
+              </Button>
+            </form>
+          </Form>
+          
+          <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-card px-2 text-muted-foreground">
+                یا
+              </span>
+            </div>
           </div>
-          <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-card px-2 text-muted-foreground">
-              یا
-            </span>
-          </div>
-        </div>
-        
-        <Button variant="outline" className="w-full" onClick={handleGuestLogin}>
-          ورود به عنوان مهمان
-        </Button>
+          
+          <Button variant="outline" className="w-full" onClick={handleGuestLogin}>
+            ورود به عنوان مهمان
+          </Button>
 
-        <div className="mt-6 text-center text-sm">
-          حساب کاربری ندارید؟{" "}
-          <Link href="/register" passHref>
-             <Button variant="link" className="px-1 h-auto py-0">
-               ثبت نام کنید
-             </Button>
-          </Link>
-        </div>
-      </CardContent>
-    </Card>
+          <div className="mt-6 text-center text-sm">
+            حساب کاربری ندارید؟{" "}
+            <Link href="/register" passHref>
+              <Button variant="link" className="px-1 h-auto py-0">
+                ثبت نام کنید
+              </Button>
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
   );
 }

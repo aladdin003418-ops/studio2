@@ -31,10 +31,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-screen flex-col items-center justify-center bg-muted/50 p-0 sm:p-4 md:p-6">
-            <div className="w-full max-w-md overflow-hidden rounded-none sm:rounded-2xl bg-card shadow-lg ring-1 ring-border">
-              <div className="flex h-screen sm:h-[85vh] min-h-[640px] w-full flex-col">
-                {children}
+          {/* Main container for mobile-like frame */}
+          <div className="bg-background sm:bg-muted/50 flex items-center justify-center min-h-screen">
+             <div className="w-full max-w-md overflow-hidden bg-card shadow-lg sm:rounded-2xl sm:ring-1 sm:ring-border">
+               <div className="flex h-screen sm:h-[85vh] min-h-[640px] w-full flex-col">
+                  {children}
               </div>
             </div>
           </div>

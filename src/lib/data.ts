@@ -1,4 +1,25 @@
-export const users = [
+export type Message = {
+  id: string;
+  text: string;
+  senderId: string;
+  timestamp: string;
+};
+
+export type Chat = {
+  id: string;
+  userId: string;
+  unreadCount: number;
+  messages: Message[];
+};
+
+export type User = {
+    id: string;
+    name: string;
+    avatar: string;
+    status?: 'online' | 'offline';
+};
+
+export const users: User[] = [
   { id: 'user-me', name: 'شما', avatar: 'https://picsum.photos/seed/0/100/100' },
   { id: 'user-1', name: 'سارا رضایی', avatar: 'https://picsum.photos/seed/1/100/100', status: 'online' },
   { id: 'user-2', name: 'علی چن', avatar: 'https://picsum.photos/seed/2/100/100', status: 'offline' },
@@ -8,7 +29,7 @@ export const users = [
   { id: 'user-6', name: 'بن کارتر', avatar: 'https://picsum.photos/seed/6/100/100', status: 'offline' },
 ];
 
-export const chats = [
+export const chats: Chat[] = [
   {
     id: 'chat-1',
     userId: 'user-1',
