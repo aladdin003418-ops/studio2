@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { Code, Bot, Lightbulb } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -36,7 +36,7 @@ const languages = [
 ];
 
 export default function AiAssistantPage() {
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     getCodeSuggestionsAction,
     initialState
   );
