@@ -43,17 +43,17 @@ export default function ForgotPasswordPage() {
   }
 
   return (
-    <Card className="w-full">
+    <Card className="w-full border-0 shadow-none sm:border sm:shadow-sm">
       <CardHeader className="items-center text-center">
         <Logo className="mb-4" />
-        <CardTitle>رمز عبور خود را فراموش کرده‌اید؟</CardTitle>
+        <CardTitle>بازیابی رمز عبور</CardTitle>
         <CardDescription>
           برای دریافت لینک بازیابی، ایمیل خود را وارد کنید.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
-          <form onSubmit={(e) => { e.preventDefault(); form.handleSubmit(onSubmit)(); }} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               control={form.control}
               name="email"
@@ -71,16 +71,16 @@ export default function ForgotPasswordPage() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full font-bold">
               ارسال لینک بازیابی
             </Button>
           </form>
         </Form>
-        <div className="mt-4 text-center text-sm">
+        <div className="mt-4 text-center">
           <Link href="/login" passHref>
-             <Button variant="link" className="px-0 h-auto py-0">
-               بازگشت به صفحه ورود
+             <Button variant="ghost" className="h-auto py-2 text-sm">
                <ArrowRight className="mr-2 h-4 w-4" />
+               بازگشت به صفحه ورود
              </Button>
           </Link>
         </div>

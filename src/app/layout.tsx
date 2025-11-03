@@ -20,7 +20,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
           rel="stylesheet"
         />
       </head>
@@ -31,9 +31,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative flex min-h-screen flex-col items-center justify-center bg-background p-4 sm:p-6">
-            <div className="w-full max-w-md overflow-hidden rounded-2xl bg-card shadow-lg ring-1 ring-border">
-              <div className="flex h-[85vh] min-h-[640px] w-full flex-col">
+          <div className="relative flex min-h-screen flex-col items-center justify-center bg-muted/50 p-0 sm:p-4 md:p-6">
+            <div className="w-full max-w-md overflow-hidden rounded-none sm:rounded-2xl bg-card shadow-lg ring-1 ring-border">
+              <div className="flex h-screen sm:h-[85vh] min-h-[640px] w-full flex-col">
                 {children}
               </div>
             </div>

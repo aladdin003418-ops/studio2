@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import *s z from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -43,7 +43,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <Card className="w-full">
+    <Card className="w-full border-0 shadow-none sm:border sm:shadow-sm">
       <CardHeader className="items-center text-center">
         <Logo className="mb-4" />
         <CardTitle>ایجاد حساب کاربری</CardTitle>
@@ -91,15 +91,15 @@ export default function RegisterPage() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full font-bold">
               ثبت نام
             </Button>
           </form>
         </Form>
-        <div className="mt-4 text-center text-sm">
+        <div className="mt-6 text-center text-sm">
           قبلا ثبت‌نام کرده‌اید؟{" "}
           <Link href="/login" passHref>
-             <Button variant="link" className="px-0 h-auto py-0">
+             <Button variant="link" className="px-1 h-auto py-0">
                ورود
              </Button>
           </Link>
