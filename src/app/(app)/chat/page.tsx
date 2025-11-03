@@ -65,18 +65,17 @@ export default function ChatListPage() {
                     <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
                   </Avatar>
                   <div className="flex-1 truncate text-right">
-                    <div className="font-semibold">{user.name}</div>
+                    <div className="flex items-center justify-end gap-2">
+                       {chat.unreadCount > 0 && (
+                        <Badge className="flex h-5 w-5 items-center justify-center rounded-full p-0">
+                          {chat.unreadCount}
+                        </Badge>
+                      )}
+                      <div className="font-semibold">{user.name}</div>
+                    </div>
                     <p className="truncate text-sm text-muted-foreground">
                       {lastMessage?.text ?? "هنوز پیامی ارسال نشده"}
                     </p>
-                  </div>
-                  <div className="flex flex-col items-end gap-1 text-xs text-muted-foreground">
-                    <span>{lastMessage?.timestamp}</span>
-                    {chat.unreadCount > 0 && (
-                      <Badge className="flex h-5 w-5 items-center justify-center rounded-full p-0">
-                        {chat.unreadCount}
-                      </Badge>
-                    )}
                   </div>
                 </div>
               </Link>
