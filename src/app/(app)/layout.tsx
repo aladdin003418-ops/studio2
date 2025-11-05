@@ -82,15 +82,14 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               {navItems.map((item) => (
                 <SidebarMenuItem key={item.href}>
                   <Link href={item.href} passHref>
-                    <SheetClose asChild>
-                      <SidebarMenuButton
-                        isActive={pathname.startsWith(item.href)}
-                        className="w-full justify-end"
-                      >
-                        <span>{item.label}</span>
-                        <item.icon className="h-5 w-5" />
-                      </SidebarMenuButton>
-                    </SheetClose>
+                    {/* The SheetClose was here, causing the error. It's removed now. */}
+                    <SidebarMenuButton
+                      isActive={pathname.startsWith(item.href)}
+                      className="w-full justify-end"
+                    >
+                      <span>{item.label}</span>
+                      <item.icon className="h-5 w-5" />
+                    </SidebarMenuButton>
                   </Link>
                 </SidebarMenuItem>
               ))}
