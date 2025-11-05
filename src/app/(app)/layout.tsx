@@ -96,12 +96,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             </SidebarMenu>
           </SidebarContent>
            <SidebarFooter>
-              <SheetClose asChild>
-                <Button variant="ghost" onClick={handleLogout} className="w-full justify-end text-red-500 hover:text-red-600">
-                  <span className="font-medium">خروج از حساب</span>
-                  <LogOut className="mr-4 h-6 w-6" />
-                </Button>
-              </SheetClose>
+              <Button variant="ghost" onClick={handleLogout} className="w-full justify-end text-red-500 hover:text-red-600">
+                <span className="font-medium">خروج از حساب</span>
+                <LogOut className="mr-4 h-6 w-6" />
+              </Button>
           </SidebarFooter>
         </Sidebar>
 
