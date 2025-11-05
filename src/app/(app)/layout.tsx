@@ -41,16 +41,11 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <div className="flex h-full w-full">
-        {/* Mobile Sidebar (Hamburger Menu) */}
-        <Sidebar side="right" className="md:hidden" collapsible='offcanvas'>
-           <SidebarHeader>
+        {/* Desktop Sidebar */}
+        <Sidebar side="right" className="hidden md:flex" collapsible="icon">
+          <SidebarHeader>
             <Logo />
           </SidebarHeader>
-          <SheetClose asChild>
-              <Button variant="ghost" size="icon" className="absolute left-4 top-4">
-                  <X className="h-5 w-5" />
-              </Button>
-          </SheetClose>
           <SidebarContent>
             <SidebarMenu>
               {navItems.map((item) => (
@@ -59,6 +54,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                     <SidebarMenuButton
                       isActive={pathname.startsWith(item.href)}
                       className="w-full justify-end"
+                      tooltip={item.label}
                     >
                       <span>{item.label}</span>
                       <item.icon className="h-5 w-5" />
@@ -73,6 +69,40 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                  <span className="font-medium">خروج از حساب</span>
                  <LogOut className="mr-4 h-6 w-6" />
               </Button>
+          </SidebarFooter>
+        </Sidebar>
+        
+        {/* Mobile Sidebar (Hamburger Menu) */}
+        <Sidebar side="right" className="md:hidden" collapsible='offcanvas'>
+           <SidebarHeader>
+            <Logo />
+          </SidebarHeader>
+          <SidebarContent>
+            <SidebarMenu>
+              {navItems.map((item) => (
+                <SidebarMenuItem key={item.href}>
+                  <Link href={item.href} passHref>
+                    <SheetClose asChild>
+                      <SidebarMenuButton
+                        isActive={pathname.startsWith(item.href)}
+                        className="w-full justify-end"
+                      >
+                        <span>{item.label}</span>
+                        <item.icon className="h-5 w-5" />
+                      </SidebarMenuButton>
+                    </SheetClose>
+                  </Link>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarContent>
+           <SidebarFooter>
+              <SheetClose asChild>
+                <Button variant="ghost" onClick={handleLogout} className="w-full justify-end text-red-500 hover:text-red-600">
+                  <span className="font-medium">خروج از حساب</span>
+                  <LogOut className="mr-4 h-6 w-6" />
+                </Button>
+              </SheetClose>
           </SidebarFooter>
         </Sidebar>
 

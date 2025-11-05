@@ -206,6 +206,11 @@ const Sidebar = React.forwardRef<
             side={side}
           >
             <SheetTitle className="sr-only">منوی اصلی</SheetTitle>
+            <SheetClose asChild>
+              <Button variant="ghost" size="icon" className="absolute left-4 top-4">
+                  <X className="h-5 w-5" />
+              </Button>
+            </SheetClose>
             <div className="flex h-full w-full flex-col pt-8">{children}</div>
           </SheetContent>
         </Sheet>
