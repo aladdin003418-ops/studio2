@@ -45,12 +45,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <Sidebar side="right" className="md:hidden" collapsible='offcanvas'>
            <SidebarHeader>
             <Logo />
-            <SheetClose asChild>
-                <Button variant="ghost" size="icon" className="absolute left-4 top-4">
-                    <X className="h-5 w-5" />
-                </Button>
-            </SheetClose>
           </SidebarHeader>
+          <SheetClose asChild>
+              <Button variant="ghost" size="icon" className="absolute left-4 top-4">
+                  <X className="h-5 w-5" />
+              </Button>
+          </SheetClose>
           <SidebarContent>
             <SidebarMenu>
               {navItems.map((item) => (
